@@ -1,35 +1,41 @@
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
-# Prompt
-Import-Module posh-git
-Import-Module oh-my-posh
-#Set-PoshPrompt bubblesextra
-
-# Visual Studio
-Import-Module VSSetup
-
-# Load Prompt Config
-oh-my-posh --init --shell pwsh --config '~/.config/powershell/florian.omp.json' | Invoke-Expression
-
-# Icons
-Import-Module Terminal-Icons
-
-# PSReadLine
-$PSReadLineOptions = @{
-    EditMode = "Emacs"
-    BellStyle = "None"
-    PredictionSource = "History"
-    HistoryNoDuplicates = $true
-    HistorySearchCursorMovesToEnd = $true
-    Colors = @{
-        "InlinePrediction" = "#B6B8BA"
-    }
+function Load-Modules()
+{
+    Load-Module("posh-git");
+    Load-Module("oh-my-posh");
+    Load-Module("VSSetup");
+    Load-Module("Terminal-Icons");
+    Load-Module("PSReadLine");
+    Load-Module("z");
+    # Load-Module("PSFzf");
 }
-Set-PSReadLineOption @PSReadLineOptions
 
-# Fzf
-Import-Module PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+function Configure-Modules()
+{
+    # Load Prompt Config
+    oh-my-posh --init --shell pwsh --config '~/.config/powershell/florian.omp.json' | Invoke-Expression
+    
+    # PSReadLine
+    $PSReadLineOptions = @{
+        EditMode = "Emacs"
+        BellStyle = "None"
+        PredictionSource = "History"
+        HistoryNoDuplicates = $true
+        HistorySearchCursorMovesToEnd = $true
+        Colors = @{
+            "InlinePrediction" = "#B6B8BA"
+        }
+    }
+
+    Set-PSReadLineOption @PSReadLineOptions
+
+    # fzf
+    # Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+}
+
+Load-Modules
+Configure-Modules
 
 # Alias
 Set-Alias -Name ll -Value ls
@@ -56,4 +62,25 @@ function OpenVS($solution)
     if ([string]::IsNullOrEmpty($vsPath)) { return }
     $solutionPath = Resolve-Path -LiteralPath $solution
     & "$vsPath\Common7\IDE\devenv.exe" "$solutionPath"
+}
+
+function Load-Module($m)
+{
+    if (!(Get-Module | Where-Object {$_.Name -eq $m}))
+    {
+        # If module is not imported, but available on disk then import
+        if (Get-Module -ListAvailable | Where-Object {$_.Name -eq $m})
+        {
+            Import-Module $m -Verbose
+        }
+        else
+        {
+            # If module is not imported, not available on disk, but is in online gallery then install and import
+            if (Find-Module -Name $m | Where-Object {$_.Name -eq $m})
+            {
+                Install-Module -Name $m -Force -Verbose -Scope CurrentUser
+                Import-Module $m -Verbose
+            }
+        }
+    }
 }
