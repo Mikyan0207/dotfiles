@@ -37,7 +37,7 @@ Includes 517 textures, and Enhanced Eye textures to go with the faces.<br>
 A complete Hair, beard, eyebrows, eyelashes, Furry ears and fur overhaul for every major character and player option in the game.<br>
 **All 6.0 content is supported.**
 <br><br>
-**Size: `1.7GB`**
+**Size: `2.4GB`**
 
 <br><br>
 
