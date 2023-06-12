@@ -1,15 +1,11 @@
 # Windows Terminal
 
-## Modules
+Windows Terminal with Powershell v7.<br>
+Starship for customization which I found faster and better than oh-my-posh.<br>
+`ls` is replaced by `lsd`, a rust alternative with more options and colored output. (`exa` is not available on Windows.)<br>
+`cat` is replaced by `bat`, also a rust alternative.
 
-- oh-my-posh
-- posh-git
-- PSFzf
-- PSReadLine
-- Terminal Icons
-- VSSetup
-- z
 
 ## Theme
 
-Modified version of bubblesextra
+[Catpuccin Mocha](https://github.com/catppuccin/starship)
