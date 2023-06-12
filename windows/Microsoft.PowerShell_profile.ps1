@@ -1,6 +1,7 @@
 [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
 
 $Env:KOMOREBI_CONFIG_HOME = 'C:\Users\flori\.config\komorebi'
+$Env:USER = 'mikyan'
 
 function OverrideLs($args) {
     lsd --header --color=always --group-directories-first $args
