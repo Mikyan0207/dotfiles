@@ -26,7 +26,8 @@ Well, [Catppuccin](https://github.com/catppuccin/) everywhere when available.
 - Launch Powershell 7 from Windows Terminal.
 - Download and install [Scoop](https://scoop.sh/)
 - Download and install [JetBrains Mono Nerd Front](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/JetBrainsMono.zip)
-- Copy the content of `terminal_settings.json` inside you `settings.json`.
+- Change your Windows Terminal font to JetBrains Mono.<br>
+- Add Catppuccin Mocha to your Terminal config and set it as default.<br>
 - Add `extras` bucket with: `scoop bucket add extras`
 - Install starship: `scoop install starship`
 - Install lsd: `scoop install lsd`
