@@ -1,0 +1,101 @@
+general:
+  show_floating_on_top: false
+  floating_window_move_amount: "5%"
+  # When enabled, switching to the current workspace activates the previously focused workspace
+  toggle_workspace_on_refocus: false
+  focus_border_color: "#42c0fb"
+
+gaps:
+  # Gap between adjacent windows.
+  inner_gap: 4
+
+  # Gap between windows and the screen edge.
+  outer_gap: 4
+
+workspaces:
+  - name: "1"
+    display_name: "Utils"
+    bind_to_monitor: 1
+  - name: "2"
+    display_name: "Work"
+    bind_to_monitor: 2
+
+
+bar:
+  enabled: true
+  height: "30px"
+  position: "top"
+  opacity: 1
+  background: "#1f1f1f"
+  foreground: "white"
+  font_family: "JetBrainsMono Nerd Font Mono"
+  font_size: "13px"
+  font_weight: "400"
+  border_width: "0"
+  border_color: "blue"
+  padding: "4px 6px 4px 6px"
+  component_separator:
+    label: " | "
+  components_left:
+    - type: "workspaces"
+  components_right:
+    - type: "clock"
+      time_formatting: "hh:mm  dd.MM.yyyy"
+keybindings:
+  # Alt
+
+  - command: "focus workspace 1"
+    binding: "Alt+1"
+  - command: "focus workspace 2"
+    binding: "Alt+2"
+
+  - command: "focus left"
+    bindings: ["Alt+H", "Alt+Left"]
+  - command: "focus right"
+    bindings: ["Alt+K", "Alt+Up"]
+  - command: "focus up"
+    bindings: ["Alt+L", "Alt+Right"]
+  - command: "focus down"
+    bindings: ["Alt+J", "Alt+Down"]
+
+  - command: "resize width -20px"
+    binding: "Alt+U"
+  - command: "resize height 20px"
+    binding: "Alt+I"
+  - command: "resize height -20px"
+    binding: "Alt+O"
+  - command: "resize width 20px"
+    binding: "Alt+P"
+
+  - command: "toggle maximized"
+    binding: "Alt+X"
+  - command: "layout vertical"
+    binding: "Alt+V"
+  - command: "set minimized"
+    binding: "Alt+M"
+
+  # Alt+Shift
+
+  - commands: ["move to workspace 1", "focus workspace 1"]
+    binding: "Alt+Shift+1"
+  - commands: ["move to workspace 2", "focus workspace 2"]
+    binding: "Alt+Shift+2"
+
+  - commands: ["move left"]
+    bindings: ["Alt+Shift+H", "Alt+Shift+Left"]
+  - commands: ["move right"]
+    bindings: ["Alt+Shift+L", "Alt+Shift+Right"]
+  - commands: ["move up"]
+    bindings: ["Alt+Shift+K", "Alt+Shift+Up"]
+  - commands: ["move down"]
+    bindings: ["Alt+Shift+J", "Alt+Shift+Down"]
+
+  - commands: ["layout horizontal"]
+    binding: "Alt+Shift+V"
+
+  - commands: ["reload config"]
+    binding: "Alt+Shift+R"
+
+  - commands: ["exit wm"]
+    binding: "Alt+Shift+E"
+
