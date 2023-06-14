@@ -3,16 +3,17 @@
 Windows Terminal with Powershell v7.<br>
 [JetBrains Mono Nerd Front](https://www.nerdfonts.com/font-downloads) for icons and ligatures.<br>
 [Starship](https://starship.rs/) for customization which is faster and better than oh-my-posh.<br>
-`ls` is replaced by [lsd](https://github.com/lsd-rs/lsd). (`exa` is not available on Windows.)<br>
+`ls` is replaced by [lsd](https://github.com/lsd-rs/lsd). (`exa` is not available on Windows. `lsd` can be slow on some systems, don't know why.)<br>
 `cat` is replaced by [bat](https://github.com/sharkdp/bat).<br>
-[whkd](https://github.com/LGUG2Z/whkd) global hotkeys daemon for Windows. (also required by komorebi.)<br>
-[komorebi](https://github.com/LGUG2Z/komorebi) for tiling window managament.
+[GlazeWM](https://github.com/lars-berger/GlazeWM/tree/master) for tiling window managament.
 
 
 ## Theme
 
 [Catppuccin Mocha](https://github.com/catppuccin/starship) for Starship.<br>
 [Catppuccin Mocha](https://github.com/catppuccin/windows-terminal) for Windows Terminal.
+
+In fact... [Catppuccin](https://github.com/catppuccin/) everywhere when available.
 
 
 ## Installation
@@ -25,17 +26,23 @@ Windows Terminal with Powershell v7.<br>
 - Install starship: `scoop install starship`<br>
 - Install lsd: `scoop install lsd`<br>
 - Install bat: `scoop install bat`<br>
-- Install whkd: `scoop install whkd`<br>
-- Install komorebi: `scoop install komorebi`<br>
+- Install whkd: `scoop install glazewm`<br>
 - Copy the powershell profile in your own powershell profile. `code $PROFILE` to open it with VS Code.<br>
 - Copy configuration files in `$HOME/.config` except `Microsoft.PowerShell_profile.ps1`.<br>
-- Replace `mikyan` in `Microsoft.PowerShell_profile.ps1` line 4 by what you want.<br>
+- Replace `<YOUR_NAME>` in `Microsoft.PowerShell_profile.ps1` line 4 by what you want.<br>
+- Replace `<REPLACE_WITH_USER>` in `Microsoft.PowerShell_profile.ps1` line 10 by your Windows username.<br>
 - Start Windows Terminal 🚀
 
 
-## Komorebi - Usage
+## Commands
 
-Start: `k start`<br>
-Stop:  `k stop`<br> 
-<br>
-For keybinds, see `whkdrc` file.
+Some aliases and keybinds are available by default.<br>
+
+| Command         	| Description              	|
+|-----------------	|--------------------------	|
+| `wm`            	| Start glazewm (Terminal) 	|
+| `wm stop`       	| Stop glazewm (Terminal)  	|
+| Alt + Shift + R 	| Reload glazewm config    	|
+| Alt + Shift + E 	| Stop glazewm             	|
+
+Check `glazewm.yaml` for all available keybinds.
