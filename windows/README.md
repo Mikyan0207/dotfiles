@@ -163,7 +163,7 @@ Set-Alias -Name cat -Value RunBat -Option AllScope -Force
 ```powershell
 function RunGlaze($args)
 {
-    Process-Start 'glazewm' -WindowStyle Hidden
+    Start-Process -WindowStyle Hidden glazewm.exe --config="C:\Users\<username>\.config\glazewm.yaml"
 }
 
 Set-Alias -Name wm -Value RunGlaze -Option AllScope -Force
