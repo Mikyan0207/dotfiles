@@ -1,7 +1,8 @@
 # Windows
 
-Get a nice terminal on Windows with Powershell v7.x, Windows Terminal, Starship, lsd, bat, GlazeWM and Flow Launcher.<br>
-
+<div align=center>
+<img src="Terminal_Screenshot.png" width="800" />
+</div>
 
 ## Theme
 
