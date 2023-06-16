@@ -108,12 +108,12 @@ I'm using Fira Code and JetBrains.
 1. Open Powershell
 2. Install Starship with Scoop: `scoop install starship`
 3. Create a `Microsoft.PowerShell_profile.ps1` file in `C:\Users\<username>\Documents\PowerShell\` or open it with `code $PROFILE`
-5. Change the name of the user in the file to your username.
-6. Add the following lines to the file:
+4. Add the following lines to the file:
 ```powershell
 Invoke-Expression (&starship init powershell)
 ```
-7. Copy the content of `starship.toml` from this repo to `C:\Users\<username>\.config\starship.toml`
+5. Copy the content of `starship.toml` from this repo to `C:\Users\<username>\.config\starship.toml`
+6. Change the name of the user in the file to your username.
 
 <br>
 
